@@ -4,15 +4,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Smoothie Machine</title>
-
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <h1>The Smoothie Machine</h1>
-  <p>Build your smoothie...</p>
+  <main class="app-shell">
+    <header class="header">
+      <h1 class="title">The Smoothie Machine</h1>
+      <p class="subtitle">
+        Build your perfect smoothie by choosing size, base, fruits, extras and sweetener.
+      </p>
+    </header>
 
+    <!-- Smoothie order form -->
+    <section class="form-section">
+      <form id="smoothieForm">
+        <!-- Customer name -->
+        <div class="form-group">
+          <label for="customerName">Your name (optional)</label>
+          <input type="text" id="customerName" name="customerName" placeholder="Smoothie fan">
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+          <label for="size">Size<span class="required">*</span></label>
+          <select id="size" name="size" required>
+            <option value="">Select a size</option>
+            <option value="small">Small (12 oz)</option>
+            <option value="medium">Medium (16 oz)</option>
+            <option value="large">Large (20 oz)</option>
+          </select>
+        </div>
+
+        <!-- Base liquid -->
+        <div class="form-group">
+          <label for="base">Base liquid<span class="required">*</span></label>
+          <select id="base" name="base" required>
+            <option value="">Choose a base</option>
+            <option value="water">Water</option>
+            <option value="milk">Milk</option>
+            <option value="almond milk">Almond Milk</option>
+            <option value="oat milk">Oat Milk</option>
+            <option value="yogurt">Yogurt</option>
+          </select>
+        </div>
+
+        <!-- Fruits -->
+        <fieldset class="form-group">
+          <legend>Fruits (choose one or more)<span class="required">*</span></legend>
+          <div class="checkbox-row">
+            <label><input type="checkbox" name="fruit" value="strawberry"> Strawberry</label>
+            <label><input type="checkbox" name="fruit" value="banana"> Banana</label>
+            <label><input type="checkbox" name="fruit" value="mango"> Mango</label>
+            <label><input type="checkbox" name="fruit" value="blueberry"> Blueberry</label>
+            <label><input type="checkbox" name="fruit" value="pineapple"> Pineapple</label>
+          </div>
+          <p class="hint">At least one fruit is required.</p>
+        </fieldset>
+
+        <!-- Extras -->
+        <fieldset class="form-group">
+          <legend>Extras (optional add-ins)</legend>
+          <div class="checkbox-row">
+            <label><input type="checkbox" name="extra" value="protein powder"> Protein powder</label>
+            <label><input type="checkbox" name="extra" value="chia seeds"> Chia seeds</label>
+            <label><input type="checkbox" name="extra" value="peanut butter"> Peanut butter</label>
+            <label><input type="checkbox" name="extra" value="spinach"> Spinach</label>
+            <label><input type="checkbox" name="extra" value="cocoa nibs"> Cocoa nibs</label>
+          </div>
+        </fieldset>
+
+        <!-- Sweetener -->
+        <div class="form-group">
+          <label for="sweetener">Sweetener</label>
+          <select id="sweetener" name="sweetener">
+            <option value="none">No sweetener</option>
+            <option value="honey">Honey</option>
+            <option value="sugar">Sugar</option>
+            <option value="stevia">Stevia</option>
+            <option value="maple syrup">Maple syrup</option>
+          </select>
+        </div>
+
+        <!-- Notes -->
+        <div class="form-group">
+          <label for="notes">Special instructions</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="No ice, extra thick, etc."></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-row">
+          <button type="submit" class="primary-btn">Order smoothie</button>
+          <button type="reset" class="secondary-btn" id="resetBtn">Clear form</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Output section -->
+    <section class="output-section">
+      <div class="smoothie-visual">
+        <div class="cup">
+          <div class="cup-liquid" id="cupLiquid"></div>
+          <div class="cup-straw"></div>
+        </div>
+      </div>
+
+      <div class="summary">
+        <h2>Your smoothie</h2>
+        <p id="summaryText" class="summary-text">
+          Fill in the form and click <strong>Order smoothie</strong> to see your custom blend and price.
+        </p>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js" defer></script>
 </body>
